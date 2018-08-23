@@ -26,6 +26,7 @@ jackpot.fn = jackpot.prototype = {
   ctrl : {
     mt : 0,
     messageMove : true,
+
   },
   vara : {
     flag: true,  //聊天室滚动条的点击拖动
@@ -53,19 +54,19 @@ jackpot.fn = jackpot.prototype = {
     t.jXJRes   = jul(".XJRes");
     t.jXJRem   = t.jXJRes.jul(">div");
     t.jXJMybag = jul(".XJMybag");
-    
+
     t.jSubjeact = jul(".XJacpotr>div>ul");
     t.jSubjeact_but = jul(".XJacpotr>span");
-    
+
     t.jXJacpot = jul(".XJacpotl");
     t.jXJacpot_c = t.jXJacpot.jul(">dl>dt>span");//倒计时
     t.jXJacpot_s = t.jXJacpot.jul(">dl>dt>label");//"开奖倒计时"文字
-    
+
     t.jXJacpot_p = t.jXJacpot.jul(">dl>dd>span");//10个参加的位置
-    
+
     t.jXJacpotrSubject = jul(".XJacpotr>div>ul");//主题
     t.jXJacpotrSubjects = {};
-    
+
     t.jHistory = jul(".XJacpotbl");//整体
     t.jHistory_t = t.jHistory.jul(">div>span").get(0);//龙钩主题
     t.jHistory_c = t.jHistory.jul(">div>span").get(1);//时间
@@ -76,14 +77,14 @@ jackpot.fn = jackpot.prototype = {
     t.jHistory_sums = t.jHistory.jul(">div>span").get(4).jul(">font");//总价
     t.jHistory_sumc = t.jHistory.jul(">div>span").get(3).jul(">font");//件数
     t.jHistory_imgs = t.jHistory.jul(">dl");//可能是饰品图片
-    
+
     t.jXJMessm_cont = jul(".XJMessm_cont");
     t.jXJMessm_cont_m = t.jXJMessm_cont.jul(">div");
     t.jXJMessm_scroll = jul(".XJMessm_scroll>div>span");
     t.XJMessb_input = jul(".XJMessb>input");
     t.XJMessb_but = jul(".XJMessb>button");
-    
-    
+
+
     t.socketIns = jul.socket({
       url : SOConnect,
       on : function(data){
@@ -94,7 +95,7 @@ jackpot.fn = jackpot.prototype = {
         }
       }
     });
-    
+
     t.uInventoryIns = jul.uInventory(jul(".XJMybag>DIV"),{
       apps: ["570_2"],
       rows: 32,
@@ -119,9 +120,9 @@ jackpot.fn = jackpot.prototype = {
       },
       yyyy: null
     });
-    
+
     t.initEvent();
-    
+
     t.getHistory(null,function(history){
       if(!history){
         return;
@@ -143,7 +144,7 @@ jackpot.fn = jackpot.prototype = {
       }
     });
   },
-  
+
   initEvent : function(){
     var t = this,i;
     //全局的回车键松开事件绑定为聊天栏发送信息
@@ -156,7 +157,7 @@ jackpot.fn = jackpot.prototype = {
         }
       }
     });
-    
+
     t.jXJacpot_p.Click(function(EE,EI,ES,E){
       if(!G.userInfo.uid){
         window.open(G.Location.account+"/login/","_top");
@@ -189,7 +190,7 @@ jackpot.fn = jackpot.prototype = {
         $(".false").hide();
       });
     });
-    
+
     jul(".XJMybag>i").Click(function(){
       t.u.uinventory = null;
       t.jXJMark.h();
@@ -199,17 +200,17 @@ jackpot.fn = jackpot.prototype = {
       if(t.vara.Navi == "IE9")
         t.jXJMybag.h();
     });
-    
+
     jul(".true").Click(function(){
       t.jXJMark.h();
       t.jXJRes.h();
       $(".false").hide();
     });
-    
+
     jul(".XJMybag>div>button").Click(function(){
       t.onToJoin();
     });
-    
+
     t.XJMessb_but.Click(function(){
       if(!G.userInfo.uid)
       {
@@ -226,12 +227,12 @@ jackpot.fn = jackpot.prototype = {
         t.onMessaging(mess);
       }
     });
-    
+
     jul(".trashBtn").Click(function(){
       t.jXJMessm_cont_m.empty().removeAttr("className");
       $(".XJMessm_scroll").addClass("notfull");
     });
-    
+
     jul(".lock").Click(function(){
       if(jul(".lock").elements[0].className.indexOf("un") !== -1)
       {
@@ -281,13 +282,13 @@ jackpot.fn = jackpot.prototype = {
       t.jXJMessm_scroll.Styles({"marginTop":(200*(mt/h))+"px"});
     });
   },
-  
+
   reSetUI : function(){
     var t = this;
     if($(".XJMybag").css("display") == "none")
       $(".XJMybag").css("display","block");
     $(".XJMybag").removeClass("show");
-    
+
     t.d.p = [];
     t.u.join = false;
     t.u.position = null;
@@ -316,7 +317,7 @@ jackpot.fn = jackpot.prototype = {
       },300);
     }
 		t.jXJacpot_c.Style("font-size","30px");
-    
+
     //十个参加位置改变
     t.jXJacpot_p.zIndex(0);
     t.jXJacpot_p.delCss("avtive");
@@ -327,7 +328,7 @@ jackpot.fn = jackpot.prototype = {
         this.MoveTo_compa($(".XJacpotl").children("dl").children("dd").children("span").get(i),t.vara.formerposition.left[i],t.vara.formerposition.top[i]);
       }
     }
-    
+
     //此处的ajax使用环境为 1.加载网页 2.新的档期。
     jul.send("/server/jackpot/getPhase",{
       tid : t.d.d.phase.tid
@@ -383,7 +384,7 @@ jackpot.fn = jackpot.prototype = {
       }
     });
   },
-  
+
   newHistory : function(history){
     var t = this,l;
     t.jHistory_t.html(history.title);
@@ -445,7 +446,7 @@ jackpot.fn = jackpot.prototype = {
   // 切换头像,剔除头像
   OnRand : function(){
     var t = this,i;
-    
+
     var award = [];
 		//如果位置被购买的话，就将其[逻辑序号]推进award中
     for(i=0;i<10;i++){
@@ -508,7 +509,7 @@ jackpot.fn = jackpot.prototype = {
 //        }
 //      }
 //		}
-//    
+//
     t.vara.RandIntervalID = t.tIntervalRand = setInterval(function(){
 			p++;
 			if(p >= order.length){
@@ -528,7 +529,7 @@ jackpot.fn = jackpot.prototype = {
         t.jXJacpot_c.html(pos+1);
     },150);
   },
-  
+
   //剔除头像
   KickUser : function(ID,p,order,pos,award){
     var t = this;
@@ -583,7 +584,7 @@ jackpot.fn = jackpot.prototype = {
   // 启动开奖
   onAward : function(){
     var t = this;
-    
+
     t.vara.stage = 1;
     t.jXJacpot_p.html();//???
     t.jXJacpot_c.addCss("avtive");
@@ -600,7 +601,7 @@ jackpot.fn = jackpot.prototype = {
         "margin-top" : 20
       },300);
     }
-    
+
     var p = -1;
     t.tIntervalMove = setInterval(function(){
       p++;
@@ -667,7 +668,7 @@ jackpot.fn = jackpot.prototype = {
   ScrollChatFrame : function(p){
     var t = this;
     var h = t.jXJMessm_cont_m.info().height;
-    
+
     //内容栏的移动(内容栏只在此处有代码使其移动)
       //判定条件: 1.未被锁屏 2.鼠标在拖动 这两种情况时内容栏可以动
     if(t.vara.ifLocked == false || t.vara.flag == false)
@@ -714,11 +715,11 @@ jackpot.fn = jackpot.prototype = {
       }
     });
   },
-  
+
   // 显示我的背包
   MyBagOn : function(){
     var t = this;
-    
+
     var temp = t.d.d.subject[t.d.d.phase.subtid].steam_market.split(/\s+/);
     var smtid = [];
     for(var i in temp){
@@ -732,7 +733,7 @@ jackpot.fn = jackpot.prototype = {
     t.uInventoryIns.CBody.choice.counts = 0;
     t.uInventoryIns.init("Robot","570_2",null,smtid);
   },
-  
+
   // 用户参加
   onToJoin : function(){
     var t = this;
@@ -940,7 +941,7 @@ jackpot.fn = jackpot.prototype = {
       },300);
       $(".countdown + label").html("系统开奖中");
     }
-    
+
     t.reSetUI();
   },
   // 开启新档期
@@ -948,7 +949,7 @@ jackpot.fn = jackpot.prototype = {
     var t = this;
     t.d.d = data;
     clearInterval(t.vara.IDfWait);
-    
+
     t.reSetUI();
     t.AccidentReset();
   },
