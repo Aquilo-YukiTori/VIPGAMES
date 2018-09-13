@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>test</title>
+    <link type='text/css' rel='stylesheet' href='chart.css'>
+    <!--<script type="text/javascript" src="templet.js"></script>-->
+    <script type='text/javascript' src='Test/GenerateChart.js'></script>
+    <script type='text/javascript' src='Test/Data.json'></script>
+    <!--<script type="text/javascript" src="chart.js"></script>-->
+    <script type="text/javascript" src="Global/jquery-1.8.3.min.js"></script>
+    <script src='Test/Data.json'></script>
+    <script>
+    $(window).bind("load",function(){
+      var test = new chart;
+      test.generate("16 SE","text","center");
+      test.generate("16 DE","text","center");
+    });
+  </script>
+  </head>
+  <body>
+    <p>test</p>
+    <p>test1</p>
+    <div class="class" id="test">htmltext1</div>
+    <div class="class">htmltext1.5</div>
+    <div class="class1">htmltext2</div>
+    <div class="class1">htmltext2.5</div>
+    <div id="id1">id</div>
+    <div id="id2"></div>
+    
+    
+    //双败
+    <div class="chart">
+      <div class="header">
+        <div></div>
+      </div>
+      <div class="WinnerGroup">
+        <ul class="Basic">
+          <li>
+            <div>
+              <div class="teamA defeat">
+                <img src="pic/D_OG.png">
+                <span>OG</span>
+                <p>1</p>
+              </div>
+              <div class="teamB">
+                <img src="pic/D_MVP.png">
+                <span>MVP</span>
+                <p>2</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+        </ul>
+        <ul class="LongLineBefore TwoInColumnInterval TwoInColumnPostposition">
+          <li>
+            <div>
+              <div class="teamA defeat">
+                <img src="pic/D_MVP.png" alt=""/>
+                <span>MVP</span>
+                <p>0</p>
+              </div>
+              <div class="teamB">
+                <img src="pic/D_Wings.png" alt=""/>
+                <span>Wings</span>
+                <p>2</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+        </ul>
+        <ul class="LongLineBefore">
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+        </ul>
+        <ul class="ShortLineBefore winner NonePostposition">
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="LoserGroup">
+        <ul class="LoserRoundUnique">
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+        </ul>
+        <ul class="Basic">
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+        </ul>
+        <ul class="ShortLineBefore TwoInColumnInterval LoserRoundUnique">
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+        </ul>
+        <ul class="TwoInColumnInterval TwoInColumnPostposition">
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          
+        </ul>
+        <ul class="ShortLineBefore LoserRoundUnique">
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+        </ul>
+        <ul class="SemifinalPostposition">
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="footer">
+        <div class="left">
+          <div></div>
+        </div>
+        <div class="center">
+          <div></div>
+        </div>
+        <div class="right">
+          <div></div>
+        </div> 
+      </div>
+    </div>
+    
+    
+    
+    //单败(兼容至36支队伍)
+    <div class="chart">
+      <div class="WinnerGroup">
+        <ul class="Basic " id='SingleEliminationRound1'>
+          <li>
+            <div>
+              <div class="teamA defeat">
+                <img src="pic/D_OG.png">
+                <span>OG</span>
+                <p>1</p>
+              </div>
+              <div class="teamB">
+                <img src="pic/D_MVP.png">
+                <span>MVP</span>
+                <p>2</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA defeat">
+                <img src="pic/D_OG.png">
+                <span>OG</span>
+                <p>1</p>
+              </div>
+              <div class="teamB">
+                <img src="pic/D_MVP.png">
+                <span>MVP</span>
+                <p>2</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+        </ul>
+        <ul class="LongLineBefore " id='SingleEliminationRound2'>
+          <li>
+            <div>
+              <div class="teamA defeat">
+                <img src="pic/D_OG.png">
+                <span>OG</span>
+                <p>1</p>
+              </div>
+              <div class="teamB">
+                <img src="pic/D_MVP.png">
+                <span>MVP</span>
+                <p>2</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+        </ul>
+        <ul class="LongLineBefore " id='SingleEliminationRound3'>
+          <li>
+            <div>
+              <div class="teamA defeat">
+                <img src="pic/D_OG.png">
+                <span>OG</span>
+                <p>1</p>
+              </div>
+              <div class="teamB">
+                <img src="pic/D_MVP.png">
+                <span>MVP</span>
+                <p>2</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+        </ul>
+        <ul class="LongLineBefore" id='SingleEliminationRound4'>
+          <li>
+            <div>
+              <div class="teamA defeat">
+                <img src="pic/D_MVP.png" alt=""/>
+                <span>MVP</span>
+                <p>0</p>
+              </div>
+              <div class="teamB">
+                <img src="pic/D_Wings.png" alt=""/>
+                <span>Wings</span>
+                <p>2</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div>
+              <div class="teamA"></div>
+              <div class="teamB"></div>
+            </div>
+          </li>
+        </ul>
+        <ul class="LongLineBefore  NonePostposition" id='SingleEliminationWinner'>
+          <li>
+            <div>
+              <div class="teamA defeat">
+                <img src="pic/D_MVP.png" alt=""/>
+                <span>MVP</span>
+                <p>0</p>
+              </div>
+              <div class="teamB">
+                <img src="pic/D_Wings.png" alt=""/>
+                <span>Wings</span>
+                <p>2</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="text" style='width: 100%;height: auto;'></div>
+  </body>
+</html>

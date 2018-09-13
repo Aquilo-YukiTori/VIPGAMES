@@ -1,0 +1,64 @@
+var Data = [
+	{
+		"content":{
+			"list":[
+				{
+					"tid":"X00001LA",
+					"endTime":"2017-08-29 16:00:00",
+					"bonums":"BO 3",
+					"stagestr":"进行中",
+					"teama":{
+						"logo":"/files/170419/X0002HJV.png",
+						"teams":"Monglz"
+					},
+					"teama_scores":"0",
+					"teamb":{
+						"logo":"/files/170815/X0002JLG.png",
+						"teams":"EVOS"
+					},
+					"teamb_scores":"0",
+					"forecasts":[{
+						"title":"猜胜负",
+						"tid":"X00005ZF",
+						"stagestr":"进行中",
+						"stagetime":"1小时前",
+						"teama_percent":"22%",
+						"teama_rate":"3.47",
+						"teamb_percent":"78%",
+						"teamb_rate":"0.27"
+					}]
+				},
+				{
+					"tid":"X00001LM",
+					"endTime":"2017-08-29 16:00:00",
+					"bonums":"BO 1",
+					"stagestr":"未开始",
+					"teama":{
+						"logo":"/files/170728/X0002IUL.png",
+						"teams":"版特列"
+					},
+					"teama_scores":"0",
+					"teamb":{
+						"logo":"/files/170801/X0002J1D.jpg",
+						"teams":"西悉尼流浪者"
+					},
+					"teamb_scores":"0",
+					"forecasts":[{
+						"title":"让分局 西悉尼流浪者 -1.0",
+						"tid":"X000060R",
+						"stagestr":"可竞猜",
+						"stagetime":"2017-08-29 17:30:00",
+						"teama_percent":"42%",
+						"teama_rate":"1.32",
+						"teamb_percent":"58%",
+						"teamb_rate":"0.7"
+					}]
+				}
+			],
+			"page": 1
+		},
+		"mess":"",
+		"next":"",
+		"status":"ok"
+	}
+]

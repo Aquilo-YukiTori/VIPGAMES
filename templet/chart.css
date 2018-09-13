@@ -1,0 +1,85 @@
+.sTit {display: block;font-weight: bold;font-size: 16px;margin-bottom: 40px;color: #333333;}
+.content>a {display: block;}
+.tit>div>span:nth-child(2) {}
+p.TeamType {float: left;width: 100%;font-size: 16px;color: #999999;margin: 10px 0;}
+
+.chart {width: auto;height: auto;margin: 0 auto;margin-bottom: 30px;font-size: 0;text-align: center;box-sizing: initial!important;}
+#left {float: left;width: auto;}
+#right {float: right;width: auto;}
+.chart>div {box-sizing: inherit!important;}
+.header {width: 736px;height: 60px;margin: 0 auto;margin-top: 20px;overflow: hidden;}
+.header>div {position: relative;width: 723px;height: 12px;margin-top: 30px;border-top: 2px solid #989898;border-left: 1px solid #686868;border-right: 1px solid #686868;}
+.header>div:before {content: "胜者组"!important;position: absolute;top: -32px;display: block;width: 100%;height: 30px;line-height: 30px;text-align: center;font-family: "Microsoft YaHei";font-size: 14px;font-weight: bold;}
+.header>div:after {content: "BO3"!important;display: block;width: 100%;height: 28px;line-height: 35px;text-align: center;font-weight: bold;font-size: 14px;}
+.WinnerGroup {display: block;position: relative;width: auto;height: auto;margin: 0 auto;}
+div.chart>div>ul {display:table-cell;vertical-align: middle;width: 136px;height: 373px;margin: 0px;margin-top: 10px;padding: 0;list-style-type: none;box-sizing: inherit!important;}
+div.chart>div>ul>li {position: relative;width: 136px;box-sizing: inherit!important;}
+div.chart>div>ul>li:nth-child(2n-1) {height: 74px;}
+div.chart>div>ul>li:nth-child(2n) {height: 73px;margin-bottom: 33px;}
+div.chart>div>ul>li:nth-child(2n)>div {margin-top: 16px;}
+div.chart>div>ul>li>div {position: relative;float: left;width: 122px;height: 55px;margin: 0;padding: 0;display: inline-block;border: 1px solid #999795;background-color: #bbbbbb;box-sizing: inherit!important;z-index: 5;}
+div.teamA {width: 122px;height: 27px;border-bottom: 1px solid #0c0b0a;box-sizing: inherit!important;transition: all .5s;cursor: pointer;}
+div.teamB {width: 122px;height: 27px;transition: all .5s;cursor: pointer;}
+div.defeat>span {color: #999999;}
+div.defeat>p {color: #999999;}
+
+ul>li>div>div>img {float: left;width: auto;height: 20px;margin: 3.5px 2px;}
+ul>li>div>div>span {float: left;display: inline-block;height: 100%;width: 69px;margin-left: 3px;color: #FFF;font-size: 12px;line-height: 27px;font-weight: bold;}
+ul>li>div>div>p {display: inline-block;float: left;width: 26px;height: 28px;margin: 0;padding: 0;line-height: 28px;text-align: center;color: #FFF;font-size: 12px;font-weight: bold; }
+li>div:after {content: "";position: absolute;right: -12px;bottom: 27px;width: 12px;height: 1px;background-color: #686868;}
+
+.LoserGroup {display: block;width: 885px;height: 347px;margin: 0 auto;margin-right: 170px;border-top: 1px dotted #b6b6b6;padding: 30px 0 0 0;}
+ul.winner {position: absolute;right: -151px;bottom: -345px;}
+div.footer {display: inline-block;width: 1027px;height: 62px;margin-right: 4px;font-size: 0;text-align: left;}
+div.footer>div {display: inline-block;}
+div.footer>div>div {position: relative;}
+div.left {width: 124px;height: 100%;}
+div.left>div {width: 122px;height: 9px;margin-top: 13px;border-left: 1px solid #686868;border-right: 1px solid #686868;border-bottom: 2px solid #989898;}
+div.left>div:before {content: "BO1"!important;position: absolute;width: 100%;height: 22px;top: -13px;left: 0;text-align: center;line-height: 22px;font-size: 13px;font-weight: bold;}
+div.center {width: 724px;height: 100%;margin: 0 26px 0 24px;}
+div.center>div {width: 100%;height: 9px;margin: 13px 0 0 0;border-left: 1px solid #686868;border-right: 1px solid #686868;border-bottom: 2px solid #989898;}
+div.center>div:before {content: "BO3"!important;position: absolute;width: 100%;height: 22px;top: -13px;left: 0;text-align: center;line-height: 22px;font-size: 13px;font-weight: bold;}
+div.center>div:after {content: "败者组"!important;position: absolute;width: 100%;height: 37px;top: 11px;left: 0;text-align: center;line-height: 37px;font-size: 14px;font-weight: bold;}
+div.right {width: 124px;height: 100%;}
+div.right>div {width: 100%;height: 9px;margin-top: 13px;border-left: 1px solid #686868;border-right: 1px solid #686868;border-bottom: 2px solid #989898;}
+div.right>div:before {content: "BO5"!important;position: absolute;width: 100%;height: 22px;top: -13px;left: 0;text-align: center;line-height: 22px;font-size: 13px;font-weight: bold;}
+div.right>div:after {content: "决赛"!important;position: absolute;width: 100%;height: 37px;top: 11px;left: 0;text-align: center;line-height: 37px;font-size: 13px;font-weight: bold;}
+
+ul.BendLineAfter>li:after {content: "";}
+ul.BendLineAfter>li>div:after {}
+
+ul#SingleEliminationRound2>li:nth-child(2n) {margin-top: 90px;margin-bottom: 123px;}
+ul#SingleEliminationRound2>li:nth-child(1) {margin-top: 46px;}
+ul#SingleEliminationRound2>li:last-child {margin-bottom: 78px!important;}
+ul#SingleEliminationRound2>li:nth-child(2n):after {content: "";position: absolute;height: 181px;width: 1px;background-color: #686868;right: 0px;top: -136px;}
+ul.ShortLineBefore {padding-left: 15px!important;}
+ul.ShortLineBefore>li>div:before {content: "";position: absolute;width: 16px;height: 1px;background-color: #686868;left: -16px;top: 27px;}
+ul.LongLineBefore {padding-left: 164px!important;}
+ul.LongLineBefore>li>div:before {content: "";position: absolute;width: 165px;height: 1px; background-color: #686868;left: -165px;top: 28px;}
+ul#SingleEliminationRound3>li:nth-child(1) {margin-top: 136px;}
+ul#SingleEliminationRound3>li:last-child {margin-bottom: 168px!important;}
+ul#SingleEliminationRound3>li:nth-child(2n) {margin-top: 270px;margin-bottom: 303px;}
+ul#SingleEliminationRound3>li:nth-child(2n):after {content: "";position: absolute;height: 361px;width: 1px;background-color: #686868;right: 0px;top: -316px;}
+ul#SingleEliminationRound4>li:nth-child(1) {margin-top: 316px;}
+ul#SingleEliminationRound4>li:last-child {margin-top: 630px;margin-bottom: 348px!important;}
+ul#SingleEliminationRound4>li:last-child:after {content: "";position: absolute;height: 721px;width: 1px;background-color: #686868;right: 0px;top: -676px;}
+
+ul.LoserRoundUnique {width: 149px!important;}
+ul.LoserRoundUnique>li:nth-child(2n-1):after {content: "";position: absolute;right: -13px;bottom: 31px;width: 14px;height: 14px;border-bottom: 1px solid #686868;border-left: 1px solid #686868;}
+ul.LoserRoundUnique>li:nth-child(2n):after {content: "";position: absolute;right: -13px;bottom: 14px;width: 14px;height: 14px;border-bottom: 1px solid #686868;border-left: 1px solid #686868;}
+ul.TwoInColumnInterval>li:nth-child(2n) {margin-top: 90px;margin-bottom: 33px;}
+ul.TwoInColumnPostposition>li:nth-child(2n):after {content: "";position: absolute;width: 11px;height: 181px;right: 0px;bottom: 28px;border-right: 1px solid #686868;}
+ul.Basic>li:nth-child(2n-1):after {content: "";position: absolute;width: 11px;height: 46px;right: 0px;bottom: 0px;border-right: 1px solid #686868;}
+ul.Basic>li:nth-child(2n):after {content: "";position: absolute;width: 11px;height: 46px;right: 0px;bottom: 28px;border-right: 1px solid #686868;}
+ul.SemifinalPostposition {width: 124px;}
+ul.SemifinalPostposition>li {width: 124px;}
+ul.SemifinalPostposition>li:after {content: "";position: absolute;width: 1px;height: 405px;border-right: 1px solid #686868;right: 0;bottom: 45px;}
+ul.NonePostposition>li>div:after {content: "";width: 0;}
+div.hoverLoserTeam {box-sizing: inherit!important;box-shadow: 0px 0px 10px #fd0000;transition: all 0.5s;}
+div.hoverWinnerTeam {box-sizing: inherit!important;box-shadow: 0px 0px 10px #3efd00;transition: all 0.5s;}
+div.chart>div>ul>li>div>span.Tag {position: absolute;right: -5px;top: 22px;width: 10px;height: 10px;background-color: #FFF;border: 1px solid #909090;border-radius: 5px;z-index: 101;cursor: pointer;}
+div.chart>div>ul>li>div>div.wrap {position: absolute;right: -404px;top: -75px;width: 402px;height: 202px;overflow: hidden;z-index: 100;}
+div.Info {display: block;position: absolute;left: -282px;top: 0px;width: 400px;height: 200px;border: 1px solid #bfbebe;background-color: #FFF;z-index: 100;opacity: 0;-webkit-transition: all .3s;box-shadow: 1px 1px 2px 1px #cac8c8;}
+div.InfoShow {-webkit-transition: all .3s;opacity: 1;left: 0px; }
+div.hide {display: none;}
+li.InfoShow {z-index: 100;}

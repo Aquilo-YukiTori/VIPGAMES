@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>test</title>
+    <style type="text/css">
+    * {-webkit-box-sizing: border-box;}
+    .start {width: 50px;height: 25px;background: #a3f3ff;box-shadow: 1px 1px 4px 1px #000;text-align: center;color: #FFF;cursor: pointer;}
+    input,h3 {margin: 10px 0 30px 20px;display: block;}
+    h3 {margin-bottom: 0px;}
+    div.button {float: left;margin-left: 20px;width: 200px;height: 50px;line-height: 50px;color: #FFF;background:  -webkit-linear-gradient(top, #b8e1fc 0%,#a9d2f3 10%,#90bae4 25%,#90bcea 37%,#90bff0 50%,#6ba8e5 51%,#a2daf5 83%,#bdf3fd 100%);;box-shadow: 2px 2px 4px 0px #000;cursor: pointer;text-align: center;}
+    div.displayBlock,codeBlock {margin-top: 50px;width: 100%;height: auto;}
+    div.buttonwrap {width: 100%;height: 70px;}
+    ul:after {content: "";display: table;clear: both;}
+    ul {list-style: none;box-sizing: border-box;padding: 0;}
+    p {width: auto;display: inline-block;}
+    input.match {display: inline-block;}
+    p.tips {display: block;}
+    </style>
+    <script type="text/javascript" src="jquery.js"></script>
+    <script type="text/javascript" src="TeamName.js"></script>
+    <link rel="stylesheet" type="text/css" href="base.css">
+  </head>
+  <body>
+    <div class="inputTeam">
+      <div>
+        <p class="tips">Tips：用于生成参加队伍，参赛队伍项填写队伍逻辑简称</p>
+        <p class="tips">使用位置："div class=Battle"</p>
+        <h3>参赛队伍</h3>
+        <input class="submit1" value="">
+        <h3>显示用名称</h3>
+        <input class="submit2" value="">
+      </div>
+    </div>
+    <div class="buttonwrap">
+      <div class="button Tcontinue">确定</div>
+      <div class="button Tconsole">打印代码</div>
+    </div>
+    
+    <div class="displayBlock">
+      
+    </div>
+    <div class="inputMatch">
+      <div>
+        <p class="tips">Tips：用于生成具体比赛结果，队伍名字项填写格式为:"逻辑简称(显示用名字)"。淘汰赛仍然选择使用图片，在生成淘汰赛的时候只需更改"阶段及时间"以及填写淘汰赛结果图片名称，其它选项不影响。</p>
+        <p class="tips">使用位置："ul id=Team_ul"</p>
+        <h3>阶段及时间</h3>
+        <input class="submit3" value="">
+        <h3>时间日期(小标题)</h3>
+        <input class="submitSTit" value="">
+        <h3>比赛结果</h3>
+        <p>分组信息及BO信息</p>
+        <input class="match submit4" value="">
+        <p>时间日期(单场赛事)</p>
+        <input class="match submit5" value="">
+        <p>队伍A</p>
+        <input class="match submit6" value="">
+        <p>比分</p>
+        <input class="match submit7" value="">
+        <p>队伍B</p>
+        <input class="match submit8" value="">
+        <p>淘汰赛结果图片名称</p>
+        <input class="match submit9" value="">
+      </div>
+    </div>
+    <div class="buttonwrap">
+      <div class="button Mcontinue">确定</div>
+<!--      <div class="button Mend">下一个阶段</div>-->
+      <div class="button Mconsole">打印代码</div>
+    </div>
+    <div class="MdisplayBlock">
+      
+    </div>
+  </body>
+  <script>
+    var groupTime,//小组赛时间
+            eliminateTime,//淘汰赛时间
+            TagTitle = new Array,//小标题的数组，存放小组赛中的关于日期的小标题以及淘汰赛中关于轮数或胜/败者组的小标题
+            Status = 0,//状态，0是参赛队伍，1是赛事结果
+            lastOperation;//最近一次有效操作的对象
+            
+            
+    $(".Tcontinue").click(function(){
+      if(!$(".submit1")[0].value || !$(".submit2")[0].value)
+      {
+        alert("请填入数据");
+        return;
+      }
+      var variable = $(".submit1")[0].value;
+      if(!TeamName[variable])
+      {
+        alert("错误，没有搜寻到队伍，请查看输入是否正确或TeamName.js中是否已加入相关队伍");
+        return;
+      }
+      variable = TeamName[variable];
+      AppendTeam(variable,$(".submit2")[0].value);
+    });
+    $(".Mcontinue").click(function(){
+     var data = {
+       "period": $(".submit3")[0].value,
+       "TitInfo": $(".submit4")[0].value,
+       "Time" : $(".submit5")[0].value,
+       "TeamA" : $(".submit6")[0].value,
+       "Score" : $(".submit7")[0].value,
+       "TeamB" : $(".submit8")[0].value,
+       "ResultPng": $(".submit9")[0].value
+     };
+          if(!data.TitInfo || !data.Time || !data.TeamA || !data.Score || !data.TeamB)
+          {
+            alert("请填入数据");
+            return;
+          }
+          if(TeamName[data.TeamA.substring(0,data.TeamA.indexOf("("))] == undefined || TeamName[data.TeamB.substring(0,data.TeamB.indexOf("("))] == undefined)
+          {
+            console.log(data.TeamA.substring(0,data.TeamA.indexOf("(")));
+            console.log(data.TeamB.substring(0,data.TeamB.indexOf("(")));
+            alert("未找到队伍，请检查队伍名字的正确性");
+            return;
+          }
+          AppendRecord(data);
+          
+    });
+    $(".Tconsole").click(function(){
+      var temp = $("#Team_ul")[0].outerHTML;
+      temp = temp.replace(/D\:\/vipgame\.com\/vipgame\.com\.match\//g,"/");
+      console.log("参赛队伍：\n");
+      console.log(temp);
+      return;
+    });
+    $(".Mconsole").click(function(){
+      var temp = $(".MdisplayBlock")[0].outerHTML;
+      temp = temp.replace(/D\:\/vipgame\.com\/vipgame\.com\.match\//g,"/");
+      console.log("赛事结果：\n");
+      console.log(temp);
+      return;
+    });
+    
+    
+    
+    var AppendTeam = function(LogicName,DisplayName)
+    {
+      if(!$("#Team_ul")[0])
+      {
+        var base = $(".displayBlock");
+        base.append($("<div id='participatingTeam'></div>")).children("div#participatingTeam").append($("<ul id='Team_ul'></ul>"));
+        base = base.children("div").children("ul");
+      }
+      base = $("#Team_ul");
+      var adder = lastOperation = $("<li></li>");
+      prevObject = "Team";
+      base.append(adder);
+      adder.append($("<a></a>")).children("a").append($("<img>")).children("img")[0].src = "D:/vipgame.com/vipgame.com.match/home/static/news/images/matchImage/Dota2_logo/" + LogicName;
+      adder.append($("<b></b>")).children("b").html(DisplayName);
+    };
+    var AppendRecord = function(data)
+    {
+      var base,title,match,pointer = 0,temp,temp1,flag = 0;
+      if(!$(".Battle")[0])
+      {
+        base = $(".MdisplayBlock");
+        base.append($("<div class='Battle'><div class='temp_container'></div></div>"));
+        $(".MdisplayBlock>.Battle").append($("<div class='temp_listview nos show'><ul class='time_list'></ul></div>"));
+      }
+      base = $(".MdisplayBlock");
+      title = base.children(".Battle").children(".temp_container");
+      match = $(".MdisplayBlock>div>div.temp_listview>ul");
+      var reg = /[\u4e00-\u9fa5]+/g;
+      temp = reg.exec(data.period);
+      temp1 = data.period.substring(3);
+      //"阶段及时间"
+      $(".MdisplayBlock>.Battle>div>a>span").each(function(){
+        if($(this).html() == temp[0])
+        {
+           flag = 1;
+        }
+      });
+      if(flag  === 0)
+      {
+        if(title.children().length)
+        {
+          title.append($("<a class='temp_detail_eliminate'><span>"+temp+"</span>"+temp1+"</a>"));
+        }
+        else
+        {
+          title.append($("<a class='temp_detail redborder'><span>"+temp+"</span>"+temp1+"</a>"));
+        }
+      }
+      //"时间日期(小标题)"
+      temp = $(".submitSTit")[0].value;
+      $("ul.time_list").children().each(function(){
+        if($(this).children("a").html() == $(".submitSTit")[0].value)
+          pointer = $(this);
+      });
+      if(temp == "")
+      {
+        return;
+      }
+      else
+      {
+        if(match.children().length == 0)
+        {
+          match.append($("<li><a class='a_active'>"+temp+"</a><div class='show'></div></li>"));
+          pointer = $("ul.time_list>li");
+        }
+        else if(pointer == 0)
+        {
+          match.append($("<li><a class=''>"+temp+"</a><div class=''></div></li>"));
+          pointer = $("ul.time_list>li:last");
+        }
+      }
+      //赛事结果
+      temp = pointer.children("div");
+      
+      var TeamAsrc = "D:/vipgame.com/vipgame.com.match/home/static/news/images/matchImage/Dota2_logo/" + TeamName[data.TeamA.substring(0,data.TeamA.indexOf("("))],
+          TeamBsrc = "D:/vipgame.com/vipgame.com.match/home/static/news/images/matchImage/Dota2_logo/" + TeamName[data.TeamB.substring(0,data.TeamB.indexOf("("))],
+          ResultPng = "D:/vipgame.com/vipgame.com.match/home/static/news/images/matchImage/" + data.ResultPng;
+      if($(".MdisplayBlock>.Battle>div>a").length == 2 && $(".div_container").length == 0)
+      {
+        $(".Battle").append($("<div class='div_container'><div class='detail_tree'><img src='"+ResultPng+"'></div></div>"));
+      }
+      else
+      {
+         if(temp.children().length % 2 == 0)
+         {
+           temp.append($("<div class='list_1'><div class='list_1_detail color_eee'>"+data.TitInfo+"<br><span>"+data.Time+"</span></div><div class='list_1_view color_f5'><b>"+data.TeamA.substring(data.TeamA.indexOf('(')+1,data.TeamA.length-1)+"</b><i><img src='"+TeamAsrc+"'></i><span class='color_E7'>"+data.Score+"<br></span><i><img src='"+TeamBsrc+"'></i><b>"+data.TeamB.substring(data.TeamB.indexOf('(')+1,data.TeamB.length-1)+"</b></div></div>"));
+         }
+         else
+         {
+           temp.append($("<div class='list_1'><div class='list_1_detail color_f5'>"+data.TitInfo+"<br><span>"+data.Time+"</span></div><div class='list_1_view color_eee'><b>"+data.TeamA.substring(data.TeamA.indexOf('(')+1,data.TeamA.length-1)+"</b><i><img src='"+TeamAsrc+"'></i><span class='color_E7'>"+data.Score+"<br></span><i><img src='"+TeamBsrc+"'></i><b>"+data.TeamB.substring(data.TeamB.indexOf('(')+1,data.TeamB.length-1)+"</b></div></div>"));
+         }
+      }
+    };
+  </script>
+</html>
